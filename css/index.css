@@ -4,7 +4,16 @@
   --secondary-theme-color: #242a20;
   --text-color: #fff;
   --highlight-text-color: #61dafb;
-  --inverse-highlight-text-color: #ffd700;
+}
+
+@keyframes zoom {
+  to {
+    transform: scale(1);
+  }
+
+  from {
+    transform: scale(1.1);
+  }
 }
 
 .body {
@@ -13,16 +22,17 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-.main {
-  display: flex;
-  flex-direction: column;
-}
-
-.cover {
+.cover,
+.acrostic {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
 }
 
 .cover__name {
@@ -32,12 +42,12 @@
   font-weight: 700;
   text-decoration: none;
   padding: 0 2rem;
+  animation: zoom 1s alternate ease-in-out infinite;
 }
 
 .cover__name-letter {
   position: relative;
   transition: all 0.5s;
-  /* text-shadow: 0 0 1rem var(--highlight-text-color); */
 }
 
 .cover__name-letter::before {
@@ -84,22 +94,26 @@
   color: #f5926b;
 }
 
-.main__stanza {
+.acrostic__stanza {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 0 2rem;
 }
 
-.main__verse {
+.acrostic__verse {
   letter-spacing: 0.1rem;
   font-weight: 500;
+  text-shadow:
+    0 0 0.5rem var(--highlight-text-color),
+    0 0 1rem var(--highlight-text-color),
+    0 0 1.5rem var(--highlight-text-color);
 }
 
-.main__verse::first-letter {
-  color: var(--inverse-highlight-text-color);
+.acrostic__verse::first-letter {
   font-size: 2rem;
   font-weight: 600;
+  color: var(--highlight-text-color);
 }
