@@ -117,3 +117,22 @@
   font-weight: 600;
   color: var(--highlight-text-color);
 }
+
+@media (min-width: 854px) {
+  .cover__name {
+    gap: 2rem;
+    font-size: 8rem;
+    max-width: 1024px;
+    margin: auto;
+    padding: 0;
+  }
+  .acrostic__stanza {
+    gap: 2rem;
+    max-width: 1024px;
+    margin: auto;
+    padding: 0;
+  }
+  .acrostic__verse {
+    font-size: 1.5rem;
+  }
+}
