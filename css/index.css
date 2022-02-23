@@ -1,0 +1,138 @@
+:root {
+  scroll-behavior: smooth;
+  --theme-color: deeppink;
+  --secondary-theme-color: #242a20;
+  --text-color: #fff;
+  --highlight-text-color: #61dafb;
+}
+
+@keyframes zoom {
+  to {
+    transform: scale(1);
+  }
+
+  from {
+    transform: scale(1.1);
+  }
+}
+
+.body {
+  background-image: radial-gradient(var(--theme-color), var(--secondary-theme-color));
+  color: var(--text-color);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.cover,
+.acrostic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
+.cover__name {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 4rem;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 0 2rem;
+  animation: zoom 1s alternate ease-in-out infinite;
+}
+
+.cover__name-letter {
+  position: relative;
+  transition: all 0.5s;
+}
+
+.cover__name-letter::before {
+  content: var(--letter);
+  position: absolute;
+  transform: scale(1.1);
+  filter: blur(1rem);
+}
+
+.cover__name-letter::after {
+  content: var(--letter);
+  position: absolute;
+  top: 75%;
+  left: 0;
+  filter: blur(0.25rem);
+  transform: rotateX(60deg);
+}
+
+.cover__name-letter:hover {
+  filter: brightness(250%);
+}
+
+.cover__name-letter:nth-child(1) {
+  color: #00bef8;
+}
+
+.cover__name-letter:nth-child(2) {
+  color: #ff0697;
+}
+
+.cover__name-letter:nth-child(3) {
+  color: #ff4d00;
+}
+
+.cover__name-letter:nth-child(4) {
+  color: #ffe600;
+}
+
+.cover__name-letter:nth-child(5) {
+  color: #bb00ff;
+}
+
+.cover__name-letter:nth-child(6) {
+  color: #f5926b;
+}
+
+.acrostic__stanza {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0 2rem;
+}
+
+.acrostic__verse {
+  letter-spacing: 0.1rem;
+  font-weight: 500;
+  text-shadow:
+    0 0 0.5rem var(--highlight-text-color),
+    0 0 1rem var(--highlight-text-color),
+    0 0 1.5rem var(--highlight-text-color);
+}
+
+.acrostic__verse::first-letter {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--highlight-text-color);
+}
+
+@media (min-width: 854px) {
+  .cover__name {
+    gap: 2rem;
+    font-size: 8rem;
+    max-width: 1024px;
+    margin: auto;
+    padding: 0;
+  }
+  .acrostic__stanza {
+    gap: 2rem;
+    max-width: 1024px;
+    margin: auto;
+    padding: 0;
+  }
+  .acrostic__verse {
+    font-size: 1.5rem;
+  }
+}
